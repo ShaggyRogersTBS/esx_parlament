@@ -6,9 +6,6 @@ This is a rework of the esx_taxijob, originally developed for "The Bulgarian Str
 Български
 
 English
-
-You can edit, share and do whatever with the script, just credit me and the original developers of the "esx_taxijob".
-
 # REQUIREMENTS
 BASIC ESX
 
@@ -18,3 +15,6 @@ then simply drag the folder to your /resources/ folder and add this to the serve
 
 # RESOURCE USAGE
 It stays around 0,05ms.
+
+# THINGS
+You can edit, share and do whatever with the script, just credit me and the original developers of the "esx_taxijob".
