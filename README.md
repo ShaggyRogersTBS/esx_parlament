@@ -4,6 +4,7 @@ This is a rework of the esx_taxijob, originally developed for "The Bulgarian Str
 
 # LANGUAGES SUPPORT
 Български
+
 English
 
 You can edit, share and do whatever with the script, just credit me and the original developers of the "esx_taxijob".
