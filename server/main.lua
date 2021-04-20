@@ -10,42 +10,6 @@ end
 TriggerEvent('esx_phone:registerNumber', 'parlament', _U('parlament_client'), true, true)
 TriggerEvent('esx_society:registerSociety', 'parlament', 'Parlament', 'society_parlament', 'society_parlament', 'society_parlament', {type = 'public'})
 
-RegisterNetEvent('esx_parlamentjob:success')
-AddEventHandler('esx_parlamentjob:success', function()
-	local xPlayer = ESX.GetPlayerFromId(source)
-	local timeNow = os.clock()
-
-	if xPlayer.job.name == 'parlament' then
-		if not lastPlayerSuccess[source] or timeNow - lastPlayerSuccess[source] > 5 then
-			lastPlayerSuccess[source] = timeNow
-
-			math.randomseed(os.time())
-			local total = math.random(Config.NPCJobEarnings.min, Config.NPCJobEarnings.max)
-
-			if xPlayer.job.grade >= 3 then
-				total = total * 2
-			end
-
-			TriggerEvent('esx_addonaccount:getSharedAccount', 'society_parlament', function(account)
-				if account then
-					local playerMoney  = ESX.Math.Round(total / 100 * 30)
-					local societyMoney = ESX.Math.Round(total / 100 * 70)
-
-					xPlayer.addMoney(playerMoney)
-					account.addMoney(societyMoney)
-
-					xPlayer.showNotification(_U('comp_earned', societyMoney, playerMoney))
-				else
-					xPlayer.addMoney(total)
-					xPlayer.showNotification(_U('have_earned', total))
-				end
-			end)
-		end
-	else
-		print(('[esx_parlamentjob] [^3WARNING^7] %s attempted to trigger success (cheating)'):format(xPlayer.identifier))
-	end
-end)
-
 RegisterNetEvent('esx_parlamentjob:getStockItem')
 AddEventHandler('esx_parlamentjob:getStockItem', function(itemName, count)
 	local xPlayer = ESX.GetPlayerFromId(source)
